@@ -1,31 +1,25 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var ReactRouter = require('react-router-dom');
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import ReactRouter from 'react-router-dom';
 
-class ZipCode extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      zipcode: '',
-    };
-
-    this.handleSubmitZipcode = this.handleSubmitZipcode.bind(this);
-    this.handleUpdateZipcode = this.handleUpdateZipcode.bind(this);
+class Search extends Component {
+  state = {
+      search: '',
   }
-  handleSubmitZipcode () {
-    this.props.onSubmitZipcode(this.state.zipcode)
+  handleSubmitZipcode = () => {
+    this.props.onSubmitZipcode(this.state.search)
 
     this.setState(function () {
       return {
-        zipcode: ''
+        search: ''
       }
     })
   }
-  handleUpdateZipcode (e) {
+  handleUpdateZipcode = (e) => {
     var zip = e.target.value;
     this.setState(function () {
       return {
-        zipcode: zip
+        search: zip
       }
     });
   }
@@ -37,9 +31,9 @@ class ZipCode extends React.Component {
         <input
           className='form-control'
           onChange={this.handleUpdateZipcode}
-          placeholder='St. George, Utah'
+          placeholder='St. George,  Utah '
           type='text'
-          value={this.state.zipcode} />
+          value={this.state.search} />
         <button
           type='button'
           style={{margin: 10}}
@@ -52,12 +46,12 @@ class ZipCode extends React.Component {
   }
 }
 
-ZipCode.defaultProps = {
+Search.defaultProps = {
   direction: 'column'
 }
 
-ZipCode.propTypes = {
+Search.propTypes = {
   direction: PropTypes.string,
 }
 
-module.exports = ZipCode;
+module.exports = Search;

@@ -1,12 +1,10 @@
-var React = require('react');
-var ZipCode = require('./ZipCode');
-var Forecast = require('./Forecast');
-var Detail = require('./Detail');
-var ReactRouter = require('react-router-dom');
-var BrowserRouter = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
+import React, {Component} from 'react';
+import Search from './Search';
+import Forecast from './Forecast';
+import Detail from './Detail';
+import { BrowserRouter, Route} from 'react-router-dom';
 
-class App extends React.Component {
+class App extends Component {
   render () {
     return (
       <BrowserRouter>
@@ -15,7 +13,7 @@ class App extends React.Component {
             return (
               <div className='navbar'>
                 <h1>Clever Title</h1>
-                <ZipCode
+                <Search
                   direction='row'
                   onSubmitZipcode={function(city){
                     props.history.push({
@@ -32,7 +30,7 @@ class App extends React.Component {
             return (
               <div className='home-container' style={{backgroundImage: "url('app/images/pattern.svg')"}}>
                 <h1 className='header'>Enter a City and State</h1>
-                <ZipCode
+                <Search
                   direction='column'
                   onSubmitZipcode={function (city) {
                     props.history.push({

@@ -10,19 +10,27 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
-.container, #app {
-  height: 100%;
-  width: 100%;
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
 }
 
 .home-container {
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-image: url('/app/images/pattern.svg');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .zipcode-container {
@@ -33,25 +41,30 @@ body {
 }
 
 .btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
+    display: inline-block;
+    padding: 11px 20px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
+
 .btn-success {
-  color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    transition: all .5s;
+}
+.btn-success:hover {
+    transform: scale(1.1);
 }
 
 .form-control {
@@ -73,51 +86,66 @@ body {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-.header {
+.title-header {
   font-size: 45px;
   color: #fff;
   font-weight: 100;
 }
 
-.navbar {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgba(252, 90, 44, 0.89);
     color: #fff;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
-  .forecast-container {
+.left h1.header__titulo {
+    font-size: 38px;
+}
+
+.forecast-container {
     display: flex;
-    justify-content:space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 50px auto;
-  }
-  .dayContainer {
+}
+.dayContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin: 35px;
-  }
-  .forecast-header {
+    cursor: pointer;
+}
+
+.dayContainer .weather {
+    filter: grayscale(1);
+    transition: all .5s;
+}
+.dayContainer:hover .weather {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+.forecast-header {
     font-size: 65px;
     color: #333;
     font-weight: 100;
     text-align: center;
-  }
-  .subheader {
+}
+.subheader {
     font-size: 30px;
     color: #333;
     font-weight: 100;
-  }
-  .weather {
+}
+.weather {
     height: 130px;
-  }
+}
 
 .description-container {
     font-size: 34px;
@@ -125,4 +153,15 @@ body {
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
+}
+
+
+
+/* Details item */
+
+.detail__title {
+    font-weight: 400;
+    color: rgba(252, 90, 44, 0.89);
+    font-size: 55px;
+    margin: 0;
 }

@@ -1,23 +1,25 @@
-var React = require('react');
-var DayItem = require('./DayItem');
+import React from 'react';
+import DayItem from './DayItem';
 var convertTemp = require('../utils/helpers').convertTemp;
 
 class Detail extends React.Component {
-  render() {
-    var props = this.props.location.state;
-    return (
-      <div>
-        <DayItem day={props} />
-        <div className='description-container'>
-          <p>{props.city}</p>
-          <p>{props.weather[0].description}</p>
-          <p>min temp: {convertTemp(props.temp.min)} degrees</p>
-          <p>max temp: {convertTemp(props.temp.max)} degrees</p>
-          <p>humidity: {props.humidity}</p>
-        </div>
-      </div>
-    )
-  }
+    render() {
+        var props = this.props.location.state;
+        return (
+            <div className="detail-item">
+                <DayItem day={props}/>
+                <div className='description-container'>
+                    <h4 className="detail__title">{props.city}</h4>
+
+
+                    <p><strong>{props.weather[0].description}</strong></p>
+                    <p><strong>min temp: </strong> {convertTemp(props.temp.min)} Degrees</p>
+                    <p><strong>max temp: </strong> {convertTemp(props.temp.max)} Degrees</p> 
+                    <p><strong>humidity: </strong> {props.humidity}</p>
+                </div>
+            </div>
+        )
+    }
 }
 
 module.exports = Detail;

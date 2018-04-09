@@ -1,12 +1,14 @@
 import React from 'react';
 import DayItem from './DayItem';
 var convertTemp = require('../utils/helpers').convertTemp;
+import Back from './Back';
 
 class Detail extends React.Component {
     render() {
         var props = this.props.location.state;
         return (
             <div className="detail-item">
+                <Back />
                 <DayItem day={props}/>
                 <div className='description-container'>
                     <h4 className="detail__title">{props.city}</h4>
@@ -22,4 +24,4 @@ class Detail extends React.Component {
     }
 }
 
-module.exports = Detail;
+export default Detail;

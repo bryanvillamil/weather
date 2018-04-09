@@ -61,6 +61,7 @@ body {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
+    margin: 10px;
     transition: all .5s;
 }
 .btn-success:hover {
@@ -156,8 +157,27 @@ body {
 }
 
 
+.forescat-view {
+    position: relative;
+}
+
+.atras {
+    position: absolute;
+    left: 1.5%;
+    top: 3%;
+    background: rgba(252, 90, 44, 0.89);
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+
 
 /* Details item */
+
+.detail-item {
+    position: relative;
+}
 
 .detail__title {
     font-weight: 400;

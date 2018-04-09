@@ -25,9 +25,8 @@ class Header extends Component {
 	             </div>
             </header>
         )
-		
 	}
 }
 
 
-module.exports = Header;
+export default Header;

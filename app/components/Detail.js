@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import DayItem from './DayItem';
 var convertTemp = require('../utils/helpers').convertTemp;
 import Back from './Back';
 
-class Detail extends React.Component {
+class Detail extends Component {
     render() {
         var props = this.props.location.state;
         return (

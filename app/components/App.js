@@ -13,9 +13,9 @@ class App extends Component {
             <BrowserRouter>
                     <div className='container'>
 
-                        <Header />
+                        <Header /> {/* Traemos el componente de Header */}
 
-                        <Route exact path='/' render={function (props) {
+                        <Route exact path='/' render={(props) => {
                             return (
                                 <div className='home-container'>
                                     <h2 className='title-header'>Enter a City and State</h2>
@@ -25,9 +25,8 @@ class App extends Component {
                                         // prop default para cambiar propiedad
                                         direction='column'
 
-                                        onSubmitZipcode={function (city) {
-                                            // enviamos al componente forecast
-                                            // con el valor a buscar 
+                                        onSubmitZipcode={(city) => {
+                                            // Funcion para forecast con la propiedad city 
                                             props.history.push({
                                                 pathname: '/forecast',
                                                 search: '?city=' + city

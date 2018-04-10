@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import api from '../utils/api';
 import queryString from 'query-string';
 import utils from '../utils/helpers';
@@ -7,7 +7,7 @@ var convertTemp = utils.convertTemp;
 import DayItem from './DayItem';
 import Back from './Back';
 
-class Forecast extends React.Component {
+class Forecast extends Component {
     state = {
         forecastData: [],
         loading: true
@@ -21,20 +21,24 @@ class Forecast extends React.Component {
 	    this.makeRequest(this.city);
   	}
   	makeRequest = (city) => {
-    	this.setState(function () {
+    	this.setState(() => {
       	return {
         	loading: true
       	}
     })
 
-    api.getForecast(city).then(function (res) {
-        this.setState(function () {
+    // traemos la respuesta de la api para verificar si hay error
+    api.getForecast(city).then((res) => {
+        // si la respuesta esta bien quita el loadin y trae el dato
+        this.setState(() => {
           	return {
 	            loading: false,
 	            forecastData: res,
           	}
         })
-    }.bind(this))
+    }).catch((error) => { // si hay error nos va a direccionar a 404
+        this.props.history.push('/error404');
+    })
 }
 
 
@@ -49,9 +53,7 @@ handleClick = (city) => {
 
 render() {
     return this.state.loading === true
-      ? <h1 className='forecast-header'> Loading </h1>
-
-
+      ? <h3 className='forecast-header'> Loading </h3>
       : <div className="forescat-view">
       		<Back />
 

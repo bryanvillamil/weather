@@ -38,9 +38,20 @@ function getForecast (city) {
   var url = prepUrl('forecast/daily', queryStringData)
 
   return axios.get(url)
-    .then(function (forecastData) {
-      return forecastData.data
+    // .then((forecastData) => {
+    //   	return forecastData.data
+    // })
+    // .catch((error) => {
+    //   	return (error)
+    // })
+    .then((forecastData) => {
+        // Success
+        return forecastData.data
     })
+    .catch((error) => {
+    	return error;
+        console.log(error);
+    });
 }
 
 module.exports = {

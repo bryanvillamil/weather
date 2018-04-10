@@ -22,7 +22,6 @@ class Search extends Component {
   /* Buscamos el campo guardado en la variable search */
   	SubmitZipcode = () => {
     	this.props.onSubmitZipcode(this.state.search)
-
     	this.setState(function () {
 	      	return {
 	        	search: ''
@@ -38,7 +37,7 @@ class Search extends Component {
 		        <input
 		          	className='form-control'
 		          	onChange={this.UpdateZipcode}
-		          	placeholder='St. George,  Utah '
+		          	placeholder='St. George , Utah '
 	          		type='text'
 		          	value={this.state.search} /> {/* la propiedad search que viene por defecto vacia y aqui se cambia */}
 
@@ -54,7 +53,7 @@ class Search extends Component {
 }
 
 
-{/* PropDefault viene en columb+n y cuando lo llamemos podemos cambiarlo */}
+{/* PropDefault viene en column y cuando lo llamemos podemos cambiarlo */}
 Search.defaultProps = {
   	direction: 'column'
 }

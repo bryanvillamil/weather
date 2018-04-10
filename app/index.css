@@ -185,3 +185,39 @@ body {
     font-size: 55px;
     margin: 0;
 }
+
+
+/* Error */
+.pageError {
+    position: relative;
+    margin-top: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pageError img {
+    width: 100%;
+}
+.pageError p {
+    text-align: center;
+    font-size: 25px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .header {
+        padding:  50px 10px;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .header {
+        padding: 0px 10px 15px;
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+
+

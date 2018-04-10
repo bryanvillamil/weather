@@ -15,9 +15,9 @@ class Detail extends React.Component {
 
 
                     <p><strong>{props.weather[0].description}</strong></p>
-                    <p><strong>min temp: </strong> {convertTemp(props.temp.min)} Degrees</p>
-                    <p><strong>max temp: </strong> {convertTemp(props.temp.max)} Degrees</p> 
-                    <p><strong>humidity: </strong> {props.humidity}</p>
+                    <p><strong>min temp: </strong> {`${convertTemp(props.temp.min)} °`} Degrees</p>
+                    <p><strong>max temp: </strong> {`${convertTemp(props.temp.max)} °`} Degrees</p> 
+                    <p><strong>humidity: </strong> {`${props.humidity} %`}</p>
                 </div>
             </div>
         )

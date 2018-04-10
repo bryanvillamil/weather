@@ -179,6 +179,16 @@ body {
     position: relative;
 }
 
+.detail-item .dayContainer {
+    cursor:  default;
+}
+.detail-item .dayContainer img {
+    filter: grayscale(0);
+}
+.detail-item .dayContainer:hover img {
+    transform: scale(1);
+}
+
 .detail__title {
     font-weight: 400;
     color: rgba(252, 90, 44, 0.89);

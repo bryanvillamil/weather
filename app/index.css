@@ -102,8 +102,13 @@ body {
     padding: 5px 10px;
 }
 
+.left .link__logo {
+    text-decoration: none;
+}
+
 .left h1.header__titulo {
     font-size: 38px;
+    color: #fff;
 }
 
 .forecast-container {

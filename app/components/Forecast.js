@@ -13,11 +13,22 @@ class Forecast extends Component {
         loading: true
     }
   	componentDidMount = () => {
-	    this.city = queryString.parse(this.props.location.search).city;
+
+        const {props: {location:{search}}} = this;
+
+	    this.city = queryString.parse(search).city;
+
 	    this.makeRequest(this.city);
   	}
   	componentWillReceiveProps = (nextProps) => {
-	    this.city = queryString.parse(nextProps.location.search).city;
+
+        const { nextProps:
+            {location: 
+                {search}
+            }
+        } = this;
+
+	    this.city = queryString.parse(search).city;
 	    this.makeRequest(this.city);
   	}
   	makeRequest = (city) => {
@@ -52,18 +63,24 @@ handleClick = (city) => {
 }
 
 render() {
+    const {state:
+        {forecastData:
+            {list}
+        }
+    } = this;
+    
     return this.state.loading === true
       ? <h3 className='forecast-header'> Loading </h3>
-      : <div className="forescat-view">
+      : <section className="forescat-view">
       		<Back />
 
           	<h2 className='forecast-header'>{this.city}</h2>
           	<div className='forecast-container'>
-            	{this.state.forecastData.list.map(function (listItem) {
+            	{list.map(function (listItem) {
               		return <DayItem onClick={this.handleClick.bind(this, listItem)} key={listItem.dt} day={listItem} />
             	}, this)}
           	</div>
-        </div>
+        </section>
     }
 }
 

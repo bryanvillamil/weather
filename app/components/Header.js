@@ -9,7 +9,9 @@ class Header extends Component {
 		return (
 			<header className="header">
 				<div className="left">
-					<h1 className="header__titulo">{titulo}</h1>
+					<a href="/" className="link__logo">
+						<h1 className="header__titulo">{titulo}</h1>
+					</a>
 				</div>
 				<div className="right">
 					<Search

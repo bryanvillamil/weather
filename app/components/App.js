@@ -11,13 +11,14 @@ class App extends Component {
     render () {
         return (
             <BrowserRouter>
-                    <div className='container'>
+                <div className='container'>
 
-                        <Header /> {/* Traemos el componente de Header */}
+                    <Header /> {/* Traemos el componente de Header */}
 
-                        <Route exact path='/' render={(props) => {
-                            return (
-                                <div className='home-container'>
+                    <Route exact path='/' render={(props) => {
+                        return (
+                            <section className='home-container'>
+                                <div className="content">
                                     <h2 className='title-header'>Enter a City and State</h2>
 
                                     {/* Aqui se llama el componente de Search */}
@@ -33,17 +34,18 @@ class App extends Component {
                                             })
                                         }}
                                         // zipcode={123} 
-                                        />
+                                    />
                                 </div>
-                            )
-                        }} />
+                            </section>
+                        )
+                    }} />
 
-                        <Route path='/forecast' component={Forecast} />
+                    <Route path='/forecast' component={Forecast} />
 
-                        <Route path='/details/:city' component={Detail} />
+                    <Route path='/details/:city' component={Detail} />
 
-                        <Route exact path='/error404' component={error404} />
-                    </div>
+                    <Route exact path='/error404' component={error404} />
+                </div>
             </BrowserRouter>
         )
     }

@@ -5,19 +5,20 @@ import Back from './Back';
 
 class Detail extends Component {
     render() {
-        var props = this.props.location.state;
+
+        const {props:{location:{state}}} = this;
+
         return (
             <div className="detail-item">
                 <Back />
-                <DayItem day={props}/>
+                <DayItem day={state}/>
                 <div className='description-container'>
-                    <h4 className="detail__title">{props.city}</h4>
+                    <h4 className="detail__title">{state.city}</h4>
 
-
-                    <p><strong>{props.weather[0].description}</strong></p>
-                    <p><strong>min temp: </strong> {`${convertTemp(props.temp.min)} °`} Degrees</p>
-                    <p><strong>max temp: </strong> {`${convertTemp(props.temp.max)} °`} Degrees</p> 
-                    <p><strong>humidity: </strong> {`${props.humidity} %`}</p>
+                    <p><strong>{state.weather[0].description}</strong></p>
+                    <p><strong>min temp: </strong> {`${convertTemp(state.temp.min)} °`} Degrees</p>
+                    <p><strong>max temp: </strong> {`${convertTemp(state.temp.max)} °`} Degrees</p> 
+                    <p><strong>humidity: </strong> {`${state.humidity} %`}</p>
                 </div>
             </div>
         )

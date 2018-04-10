@@ -20,26 +20,46 @@ class Search extends Component {
   	}
 
   /* Buscamos el campo guardado en la variable search */
-  	SubmitZipcode = () => {
-    	this.props.onSubmitZipcode(this.state.search)
+  	SubmitZipcode = (e) => {
+
+  		const {state: 
+  			{search}
+  		} = this; 
+
+    	this.props.onSubmitZipcode(search)
     	this.setState(function () {
 	      	return {
 	        	search: ''
 	      	}
-	    })
+	    });
   	}
-  	
   	render() {
+
+  		// destructor para this.props.direction
+  		const {props:
+  			{direction}
+  		} = this;
+  		
+  		// destructor para this.state.search
+  		const {state:
+  			{search}
+  		} = this;
+
 	    return (
 	      	<div
 		        className='zipcode-container'
-		        style={{flexDirection: this.props.direction}}> {/* Props default propiedad flex */}
+		        style={{flexDirection: direction}}> {/* Props default propiedad flex */}
 		        <input
 		          	className='form-control'
 		          	onChange={this.UpdateZipcode}
 		          	placeholder='St. George , Utah '
+		          	onKeyPress={(ev) => {
+					    if (ev.key === 'Enter') {
+					      	this.SubmitZipcode();
+					    }
+					}}
 	          		type='text'
-		          	value={this.state.search} /> {/* la propiedad search que viene por defecto vacia y aqui se cambia */}
+		          	value={search} /> {/* la propiedad search que viene por defecto vacia y aqui se cambia */}
 
 		        <button
 		          	type='button'
@@ -61,7 +81,6 @@ Search.defaultProps = {
 Search.propTypes = {
   	direction: PropTypes.string,
 }
-
 
 
 export default Search; {/* exportamos componente */}
